@@ -19,9 +19,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrollY }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-ider-dark/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-ider-dark/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -32,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollY }) => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">IDER SOLUTIONS</h1>
-              <p className="text-xs text-ider-grey opacity-0 animate-fade-in animation-delay-500">
+              <p className="text-xs text-ider-grey animate-fade-in animation-delay-500">
                 We turn ideas into digital reality
               </p>
             </div>
