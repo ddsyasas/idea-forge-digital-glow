@@ -22,7 +22,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -34,7 +34,7 @@ const Contact = () => {
 
     // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
-    
+
     toast({
       title: "Message sent successfully!",
       description: "We'll get back to you within 24 hours.",
@@ -87,10 +87,10 @@ const Contact = () => {
                 </div>
               </div>
               <a
-                href="mailto:yasasdreamz@gmail.com"
+                href="mailto:yasas@idersolutions.com"
                 className="text-ider-yellow hover:text-yellow-400 text-xl font-semibold transition-colors duration-300"
               >
-                yasasdreamz@gmail.com
+                yasas@idersolutions.com
               </a>
             </div>
 
@@ -220,10 +220,10 @@ const Contact = () => {
           <p className="text-ider-grey text-lg">
             Prefer a direct conversation? Email us at{' '}
             <a
-              href="mailto:yasasdreamz@gmail.com"
+              href="mailto:yasas@idersolutions.com"
               className="text-ider-yellow hover:text-yellow-400 font-semibold transition-colors duration-300"
             >
-              yasasdreamz@gmail.com
+              yasas@idersolutions.com
             </a>
           </p>
         </div>

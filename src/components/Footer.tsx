@@ -19,7 +19,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Globe, href: '#', label: 'Website' },
-    { icon: Mail, href: 'mailto:yasasdreamz@gmail.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:yasmasdreamz@gmail.co', label: 'Email' },
     { icon: Code, href: '#', label: 'GitHub' },
     { icon: Zap, href: '#', label: 'LinkedIn' },
   ];
@@ -49,7 +49,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-ider-grey leading-relaxed mb-6 max-w-md">
-                Your trusted partner in transforming innovative ideas into powerful digital solutions. 
+                Your trusted partner in transforming innovative ideas into powerful digital solutions.
                 From concept to launch, we guide you through every step of your digital journey.
               </p>
               <div className="flex space-x-4">
@@ -105,10 +105,10 @@ const Footer = () => {
               <div className="mt-8">
                 <h5 className="text-white font-semibold mb-3">Get In Touch</h5>
                 <a
-                  href="mailto:yasasdreamz@gmail.com"
+                  href="mailto:yasas@idersolutions.com"
                   className="text-ider-yellow hover:text-yellow-400 transition-colors duration-300 text-sm"
                 >
-                  yasasdreamz@gmail.com
+                  yasas@idersolutions.com
                 </a>
               </div>
             </div>
@@ -120,7 +120,7 @@ const Footer = () => {
           <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-ider-grey text-sm">
-                © 2024 IDER SOLUTIONS (PVT) LTD. All rights reserved.
+                © 2025 IDER SOLUTIONS (PVT) LTD. All rights reserved.
               </div>
               <div className="flex items-center space-x-1 text-ider-grey text-sm">
                 <span>Made with</span>
