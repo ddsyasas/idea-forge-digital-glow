@@ -4,7 +4,7 @@ import { ArrowRight, Globe } from 'lucide-react';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
   const fullText = 'From Idea to Digital Reality';
 
   useEffect(() => {
@@ -12,39 +12,20 @@ const Hero = () => {
     let timer: NodeJS.Timeout;
 
     const animate = () => {
-      if (!isDeleting) {
-        // Typing phase
-        if (index <= fullText.length) {
-          setDisplayedText(fullText.slice(0, index));
-          index++;
-          timer = setTimeout(animate, 100);
-        } else {
-          // Pause before deleting
-          timer = setTimeout(() => {
-            setIsDeleting(true);
-            index = fullText.length;
-            animate();
-          }, 2000);
-        }
+      if (index <= fullText.length) {
+        setDisplayedText(fullText.slice(0, index));
+        index++;
+        timer = setTimeout(animate, 100);
       } else {
-        // Deleting phase
-        if (index >= 0) {
-          setDisplayedText(fullText.slice(0, index));
-          index--;
-          timer = setTimeout(animate, 50);
-        } else {
-          // Reset and start over
-          setIsDeleting(false);
-          index = 0;
-          timer = setTimeout(animate, 500);
-        }
+        // Animation finished, hide cursor
+        setShowCursor(false);
       }
     };
 
     animate();
 
     return () => clearTimeout(timer);
-  }, [isDeleting]);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -79,7 +60,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="gradient-text">
               {displayedText}
-              <span className="animate-blink">|</span>
+              {showCursor && <span className="animate-blink">|</span>}
             </span>
           </h1>
 
