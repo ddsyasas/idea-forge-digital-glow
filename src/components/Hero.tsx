@@ -4,21 +4,47 @@ import { ArrowRight, Globe } from 'lucide-react';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
   const fullText = 'From Idea to Digital Reality';
 
   useEffect(() => {
     let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
+    let timer: NodeJS.Timeout;
 
-    return () => clearInterval(timer);
-  }, []);
+    const animate = () => {
+      if (!isDeleting) {
+        // Typing phase
+        if (index <= fullText.length) {
+          setDisplayedText(fullText.slice(0, index));
+          index++;
+          timer = setTimeout(animate, 100);
+        } else {
+          // Pause before deleting
+          timer = setTimeout(() => {
+            setIsDeleting(true);
+            index = fullText.length;
+            animate();
+          }, 2000);
+        }
+      } else {
+        // Deleting phase
+        if (index >= 0) {
+          setDisplayedText(fullText.slice(0, index));
+          index--;
+          timer = setTimeout(animate, 50);
+        } else {
+          // Reset and start over
+          setIsDeleting(false);
+          index = 0;
+          timer = setTimeout(animate, 500);
+        }
+      }
+    };
+
+    animate();
+
+    return () => clearTimeout(timer);
+  }, [isDeleting]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
